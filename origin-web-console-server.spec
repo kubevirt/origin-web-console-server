@@ -17,7 +17,7 @@
 %{!?commit: %global commit HEAD }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 # os_git_vars needed to run hack scripts during rpm builds
-%{!?os_git_vars: %global os_git_vars OS_GIT_VERSION='' OS_GIT_COMMIT='' OS_GIT_MAJOR='' OS_GIT_MINOR='' OS_GIT_TREE_STATE='' }
+%global os_git_vars OS_GIT_VERSION=v3.10.0-0.65.0 OS_GIT_MAJOR=3 OS_GIT_MINOR=10 OS_GIT_PATCH=0 OS_GIT_COMMIT=2a25bbaba3d0bbe59c96b8d9087bd70f31b90ab8 OS_GIT_TREE_STATE=clean
 
 %if 0%{?skip_build}
 %global do_build 0
@@ -53,14 +53,14 @@
 %global product_name OpenShift Web Console
 %global import_path github.com/openshift/origin-web-console-server
 
-Name:           %{package_name}
-Version:        %{version}
-Release:        %{release}%{?dist}
+Name:           atomic-openshift-web-console
+Version:        3.10.0
+Release:        0.65.0.git.311.cnv_20180615
 Summary:        Web Console for the OpenShift Application Platform
 License:        ASL 2.0
 URL:            https://%{import_path}
 
-Source0:        https://%{import_path}/archive/%{commit}/%{name}-%{version}.tar.gz
+Source0: cnv-openshift-web-console.tar.gz
 BuildRequires:  golang >= %{golang_version}
 
 # If go_arches not defined fall through to implicit golang archs
@@ -78,7 +78,7 @@ development and deployment. This is the web console server for OpenShift.
 
 %prep
 %if 0%{do_prep}
-%setup -q
+%setup -q -n origin-web-console-server
 %endif
 
 %build
