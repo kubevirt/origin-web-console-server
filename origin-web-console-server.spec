@@ -17,8 +17,8 @@
 %{!?commit: %global commit HEAD }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 # os_git_vars needed to run hack scripts during rpm builds
-%{!?os_git_vars: %global os_git_vars OS_GIT_VERSION='' OS_GIT_COMMIT='' OS_GIT_MAJOR='' OS_GIT_MINOR='' OS_GIT_TREE_STATE='' }
-%global os_git_vars OS_GIT_VERSION=v3.11.0-0.22.0 OS_GIT_MAJOR=3 OS_GIT_MINOR=11 OS_GIT_PATCH=0 OS_GIT_COMMIT='' OS_GIT_TREE_STATE=clean
+%{!?os_git_vars: %global os_git_vars OS_GIT_VERSION='' OS_GIT_COMMIT=7de66a09e1721c0af1ab53a4ab4e9b6345b1b110 }
+%global os_git_vars OS_GIT_VERSION=v3.11.0-0.22.0 OS_GIT_MAJOR=3 OS_GIT_MINOR=11 OS_GIT_PATCH=0 OS_GIT_COMMIT=7de66a09e1721c0af1ab53a4ab4e9b6345b1b110 OS_GIT_TREE_STATE=clean
 
 %if 0%{?skip_build}
 %global do_build 0
@@ -55,8 +55,8 @@
 %global import_path github.com/openshift/origin-web-console-server
 
 Name:           atomic-openshift-web-console
-Version:  1.2
-Release:  0
+Version: 1.2
+Release: 2
 Summary:        Web Console for the OpenShift Application Platform
 License:        ASL 2.0
 URL:            https://%{import_path}
